@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Type Writer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-   <style>
-    .gradient-color{
-        background: linear-gradient(to right, #f857a6, #ff5858);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: 0 0 20px #fe007bb5;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Type Writer</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* gradient text */
+    .gradient-color {
+      background: linear-gradient(to right, #f857a6, #ff5858);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px #fe007bb5;
     }
 
-    /* custom list style */
+    /* custom bullet list */
     .custom-list li {
       position: relative;
-      padding-left: 25px; 
+      padding-left: 25px;
       margin-bottom: 10px;
     }
-
     .custom-list li::before {
       content: "";
       position: absolute;
@@ -30,109 +33,114 @@
       top: 9px;
       width: 10px;
       height: 10px;
-      border: 3px solid #fe007bb5; 
+      border: 3px solid #fe007bb5;
       border-radius: 50%;
-      background: transparent; 
+      background: transparent;
     }
-    /* active status */
+
+    /* active nav link */
     .active {
-        color: #ff5858;
+      color: #ff5858;
     }
     .active::after {
-        width: 100% ;
-        background-color: #ff5858;
+      width: 100%;
+      background-color: #ff5858;
     }
 
-    /* typewriter effect */
+    /* Typewriter effect */
     .typewriter {
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid black;        
-    width: 0;                             
-    animation: typing 3s steps(22) forwards, 
-     blink .9s step-end infinite;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #000;
+      animation: typing 3s steps(25) infinite, blink 0.8s step-end infinite;
     }
 
-    /* typing animation */
     @keyframes typing {
-      from {
+      0% {
         width: 0;
       }
-      to {
+      40% {
         width: 100%;
+      }
+      60% {
+        width: 100%;
+      }
+      100% {
+        width: 0;
       }
     }
 
-    /* blinking cursor */
     @keyframes blink {
       50% {
         border-color: transparent;
       }
     }
-
-
-   </style>
+  </style>
 </head>
-<body>
-    <!-- header / navbar -->
-    <header class="py-4 shadow-lg px-5 lg:px-0 bg-gradient-to-r from-[#f857a565] to-[#ff5858ad]">
-        <div class="sm:container mx-auto flex justify-between items-center">
-            <a href="./index.html">
-                <div class="overflow-hidden h-16">
-                <img src="./assets/logo.png" alt="logo" class="w-70">
-                </div>
-            </a>
 
-            <nav>
-                <ul class="flex gap-5 text-xl font-medium">
-                    <li><a class="hover:text-[#ff5858] relative inline-block text-black-300 pb-2 transition-all duration-300 hover:text-black-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#ff5858] hover:after:w-full  after:transition-all after:duration-300 active" href="./index.html">Home</a></li>
-                    <li><a class="hover:text-[#ff5858] relative inline-block text-black-300 pb-2 transition-all duration-300 hover:text-black-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#ff5858] hover:after:w-full after:transition-all after:duration-300" href="./index.html">Portfolio</a></li>
-                    <li><a class="hover:text-[#ff5858] relative inline-block text-black-300 pb-2 transition-all duration-300 hover:text-black-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#ff5858] hover:after:w-full after:transition-all after:duration-300" href="./index.html">About</a></li>
-                    <li><a class="hover:text-[#ff5858] relative inline-block text-black-300 pb-2 transition-all duration-300 hover:text-black-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#ff5858] hover:after:w-full  after:transition-all after:duration-300" href="./index.html">Contact</a></li>
-                </ul>
-            </nav>
+<body class="font-sans bg-white text-gray-800">
+  <!-- Navbar -->
+  <header class="py-4 shadow-lg px-5 bg-gradient-to-r from-[#f857a565] to-[#ff5858ad]">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <!-- Logo -->
+      <a href="./index.html">
+        <img src="./assets/logo.png" alt="logo" class="h-12 sm:h-16" />
+      </a>
+
+      <!-- Nav Links (hidden on mobile, visible on md and above) -->
+      <nav class="hidden md:block">
+        <ul class="flex flex-wrap justify-center gap-6 text-lg font-medium">
+          <li><a class="hover:text-[#ff5858] transition active" href="#">Home</a></li>
+          <li><a class="hover:text-[#ff5858] transition" href="#">Portfolio</a></li>
+          <li><a class="hover:text-[#ff5858] transition" href="#">About</a></li>
+          <li><a class="hover:text-[#ff5858] transition" href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-10 bg-gradient-to-r from-[#f857a565] to-[#ff5858ad]">
+    <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row justify-center items-center gap-10 px-5">
+      <!-- Text Content -->
+      <div class="w-full lg:w-1/2 text-center lg:text-left">
+        <h1 class="font-semibold text-4xl sm:text-5xl lg:text-6xl gradient-color py-3">
+          Abdul Moid Siddiqui
+        </h1>
+
+        <p class="text-2xl sm:text-3xl font-medium gradient-color py-2 typewriter">
+          Hey there, I'm a Web Developer
+        </p>
+
+        <p class="mt-3 text-base sm:text-lg leading-relaxed">
+          I'm a passionate Front-End Web Developer who loves building clean, modern, and fully responsive websites.
+          I've mastered <span class="gradient-color font-semibold">HTML, CSS, Bootstrap, Tailwind CSS</span>, and I use them to bring creative ideas to life with smooth layouts, elegant animations, and pixel-perfect designs.
+        </p>
+
+        <p class="mt-3 text-base sm:text-lg leading-relaxed">
+          My goal is simple: to build websites that look great on every device and deliver a seamless user experience. I always focus on quality, speed, and responsiveness.
+        </p>
+
+        <h3 class="font-semibold text-2xl sm:text-3xl mt-5 mb-2 gradient-color">What I Do:</h3>
+        <ul class="custom-list text-base sm:text-lg">
+          <li>Design and build responsive websites.</li>
+          <li>Create modern layouts with Tailwind & Bootstrap.</li>
+          <li>Write clean, reusable, and efficient code.</li>
+          <li>Turn ideas into interactive digital experiences.</li>
+        </ul>
+      </div>
+
+      <!-- Image Section -->
+      <div class="w-60 sm:w-72 lg:w-80">
+        <div class="overflow-hidden shadow-[0_0_30px_#fe007bb5] rounded-xl">
+          <img class="w-full" src="./assets/profile.png" alt="profile" />
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <!-- hero section -->
-    <section class= "py-10.5 bg-gradient-to-r from-[#f857a565] to-[#ff5858ad]">
-        <div class="sm:container mx-auto flex flex-col-reverse lg:flex-row justify-center items-center gap-20">
-            <div class="w-170">
-                <h1 class="font-semibold text-6xl gradient-color  py-3">Abdul Moid Siddiqui</h1>
-                <div class="overflow-hidden w-132">
-                <p class=" font-medium text-2xl my-1 text-4xl gradient-color py-2 typewriter">Hey there, I'm a  Web Developer
-                </div>
-                    <!-- <span class="gradient-color input font-medium"></span> -->
-                </p>
-                <p>
-                    I'm a passionate Front-End Web Developer who loves building clean, modern, and fully responsive websites.
-                    I've mastered HTML, CSS, Bootstrap, Tailwind CSS
-                    <!-- <span class="gradient-color skill font-medium text-xl"></span>  -->
-                    and I use them to bring creative ideas to life with smooth layouts, elegant animations, and pixel-perfect designs.
-
-                    My goal is simple: to build websites that look great on every device and deliver a seamless user experience.
-                    I always focus on quality, speed, and   responsiveness.
-
-                    <p class="font-medium text-2xl my-3">What I Do:</p>
-
-                    <ul class="custom-list">
-                        <li>Design and build responsive websites.</li>
-                        <li>Create modern layouts with Tailwind & Bootstrap.</li>
-                        <li>Write clean, reusable, and efficient code.</li>
-                        <li>Turn ideas into interactive digital experiences.</li>
-                    </ul>
-                </p>
-            </div>
-            <div class="w-80">
-                <div class="h-100 overflow-hidden shadow-[0_0_30px_#fe007bb5] rounded-xl shadow-2xl">
-                    <img class="w-80 mx-auto" src="./assets/profile.png" alt="image">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </body>
-</html> 
-
+</html>
